@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Button from '@material-ui/core/Button'
-import Api from '../Api'
+import Api from '../api'
 
 class MessageList extends Component {
   constructor(...args) {
