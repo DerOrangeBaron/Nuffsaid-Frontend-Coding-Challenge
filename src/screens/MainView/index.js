@@ -1,6 +1,7 @@
 import React, { useState, useReducer, useEffect, useRef, useCallback } from 'react'
 import Header from '../../components/Header'
 import Button from '../../components/Button'
+import MessageTable from '../../components/MessageTable'
 import Api from '../../api'
 
 const MainView = () => {
@@ -51,7 +52,7 @@ const MainView = () => {
             <Button text={apiButtonOption} action={handleApiButton} />
             <Button text="Clear" action={() => dispatch({type: 'clear'})}/>
           </Header>
-
+        <MessageTable messages={state.messages}/>
         </div>
       )
 }
