@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import Button from '@material-ui/core/Button'
+import Header from './Header'
+import Button from './Button'
 import Api from '../api'
 
 class MessageList extends Component {
@@ -37,8 +38,7 @@ class MessageList extends Component {
     const isApiStarted = this.api.isStarted()
     return (
       <Button
-        variant="contained"
-        onClick={() => {
+        action={() => {
           if (isApiStarted) {
             this.api.stop()
           } else {
@@ -46,8 +46,8 @@ class MessageList extends Component {
           }
           this.forceUpdate()
         }}
+        text={isApiStarted ? 'Stop' : 'Start'}
       >
-        {isApiStarted ? 'Stop Messages' : 'Start Messages'}
       </Button>
     )
   }
@@ -55,7 +55,10 @@ class MessageList extends Component {
   render() {
     return (
       <div>
-        {this.renderButton()}
+        <Header>
+          {this.renderButton()}
+          <Button text="Clear" />
+        </Header>
       </div>
     )
   }
