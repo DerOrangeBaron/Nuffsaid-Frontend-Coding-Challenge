@@ -1,5 +1,5 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import MessageList from './components/MessageList'
+import MainView from './screens/MainView'
 
-ReactDOM.render(<MessageList />, document.getElementById('root'));
+ReactDOM.render(<MainView />, document.getElementById('root'));
