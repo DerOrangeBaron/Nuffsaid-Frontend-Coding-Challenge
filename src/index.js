@@ -1,5 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import MainView from './screens/MainView'
+import AppContextProvider from './context'
 
-ReactDOM.render(<MainView />, document.getElementById('root'));
+ReactDOM.render((
+    <AppContextProvider>
+        <MainView />
+    </AppContextProvider>
+    ), document.getElementById('root'));
