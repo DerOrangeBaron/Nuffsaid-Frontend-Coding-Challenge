@@ -8,7 +8,7 @@ const MessageTable = ({className, message, onClear}) => {
     
 
     return (
-        <S.MessageBox className={className}>
+        <S.MessageBox className={className} data-testid="message-box">
             <p>{message.message}</p>
             <S.MessageFooter>
                 <S.ButtonClear onClick={onClear}>
