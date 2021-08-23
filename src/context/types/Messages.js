@@ -1,3 +1,4 @@
 export const NEW_MESSAGE = "NEW_MESSAGE";
 export const CLEAR_MESSAGES = "CLEAR_MESSAGES";
+export const CLEAR_MESSAGE = "CLEAR_MESSAGE";
 export const API_START_STOP = "API_START_STOP";

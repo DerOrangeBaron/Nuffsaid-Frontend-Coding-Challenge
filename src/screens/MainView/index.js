@@ -12,20 +12,6 @@ const MainView = () => {
     const context = useContext(GlobalContext);
     const [messagesState, messagesDispatch] = context.globalMessages;
 
-    // const messageReducer = (state, action) => { 
-    //     let messages = [];
-    //     if (action.type === 'add') {
-    //         messages = [
-    //             ...state.messages,
-    //             action.message,
-    //         ];
-    //     }
-    //     console.log(messages)     
-    //     return {messages}
-    // }
-    // const [state, dispatch] = useReducer(messageReducer, {messages:[]});
-
-
     //Create the API
     useEffect(() => {
         setApi(new Api({
@@ -48,6 +34,7 @@ const MainView = () => {
     const apiButtonOption = apiIsStarted ? 'stop' : 'start';
     const handleApiButton = () => {
         api[apiButtonOption]();
+        messagesDispatch({apiIsStarted: !apiIsStarted, type: DispatchTypes.Messages.API_START_STOP})
         forceUpdate()
     }
 
@@ -55,7 +42,7 @@ const MainView = () => {
         <div>
             <Header>
                 <Button text={apiButtonOption} action={handleApiButton} />
-                <Button text="Clear" action={() => dispatch({type: 'clear'})}/>
+                <Button text="Clear" action={() => messagesDispatch({type: DispatchTypes.Messages.CLEAR_MESSAGES})}/>
             </Header>
             <MessageTable messages={messagesState.messages}/>
         </div>
