@@ -41,8 +41,8 @@ const MainView = () => {
     return (
         <div>
             <Header>
-                <Button text={apiButtonOption} action={handleApiButton} />
-                <Button text="Clear" action={() => messagesDispatch({type: DispatchTypes.Messages.CLEAR_MESSAGES})}/>
+                <Button text={apiButtonOption} action={handleApiButton} data-testid="api-button"/>
+                <Button text="Clear" action={() => messagesDispatch({type: DispatchTypes.Messages.CLEAR_MESSAGES})} data-testid="clear-button" />
             </Header>
             <MessageTable messages={messagesState.messages}/>
         </div>

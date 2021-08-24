@@ -14,7 +14,7 @@ const MessageTable = ({props}) => {
 
     return (
         <Container fixed>
-            <Grid container spacing={2}>
+            <Grid container spacing={2} data-testid="grid">
                 { [1,2,3].map( priority => {
                     return (
                         <Grid item sm={4} key={priority}>
@@ -22,7 +22,13 @@ const MessageTable = ({props}) => {
                             <p style={{margin: '0 0 10px 0'}}>Count: {messages.filter( m => m.priority === priority).length}</p>
                             {   
                                 messages.filter( m => m.priority === priority).map( (message, idx) => (
-                                    <MessageBox key={message.message.split(' ')[0] + idx} className={`priority${priority}`} message={message} onClear={() => messagesDispatch({id: message.id, type: DispatchTypes.Messages.CLEAR_MESSAGE})}/>
+                                    <MessageBox 
+                                        key={message.message.split(' ')[0] + idx} 
+                                        className={`priority${priority}`} 
+                                        message={message} 
+                                        onClear={() => messagesDispatch({id: message.id, type: DispatchTypes.Messages.CLEAR_MESSAGE})} 
+                                        data_testid="message-box"
+                                    />
                                 ))
                             }
                         </Grid>

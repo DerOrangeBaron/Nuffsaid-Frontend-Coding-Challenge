@@ -23,7 +23,7 @@ const SnackbarManager = () => {
         // Prevent open the Snackbar at the beginning
         if(snackMessage.message) {
             setOpen(true)
-            setTimeout(() => setCloseMessage(snackMessage.message), 2000)
+            setTimeout(() => {setCloseMessage(snackMessage.message)}, 2000)
         }
     }, [snackMessage])
     
@@ -46,7 +46,16 @@ const SnackbarManager = () => {
                 onClose={handleClose}
                 anchorOrigin={{vertical: 'top', horizontal: 'right'}}
             >
-                <MessageBox message={snackMessage} className="priority1" onClear={handleClose}/>
+                <div>
+                {  open && 
+                    <MessageBox 
+                        message={snackMessage} 
+                        className="priority1" 
+                        onClear={handleClose}
+                        data_testid="message-box-snack"
+                    />
+                }
+                </div>
             </Snackbar>
         </div>
     )

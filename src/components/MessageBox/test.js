@@ -7,9 +7,9 @@ describe("<MessageBox />", () => {
     const testMessage = {message:'Ipsum Lorem'}
     const component = render(
         <>
-            <MessageBox className="priority1" message={testMessage} />
-            <MessageBox className="priority2" message={testMessage} />
-            <MessageBox className="priority3" message={testMessage} />
+            <MessageBox className="priority1" message={testMessage} data_testid="message-box"/>
+            <MessageBox className="priority2" message={testMessage} data_testid="message-box"/>
+            <MessageBox className="priority3" message={testMessage} data_testid="message-box"/>
         </>        
     )
     const [messageBox1, messageBox2, messageBox3] = component.getAllByTestId('message-box')
